@@ -1,0 +1,8 @@
+<h1>Welcome to the Suggestion Box</h1>
+
+<% @suggestions.each do |suggestion| %>
+	<%= suggestion.title %>
+	<%= suggestion.content %>
+	<%= suggestion.name %>
+	<%= link_to "Show", suggestion_path(suggestion.id) %>
+<% end %>

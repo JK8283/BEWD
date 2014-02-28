@@ -1,0 +1,10 @@
+<h1> Welcome to shirt management. </h1>
+<h3> See all of your shirts below </h3>
+
+<% @shirts.each do |shirt| %>
+	<li>
+	<%= shirt.name %>
+	<%= shirt.description %>
+	<%= image_tag( shirt.image ) %>
+	</li>
+<% end %>
