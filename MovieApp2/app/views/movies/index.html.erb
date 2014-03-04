@@ -1,0 +1,13 @@
+<h1> Welcome to Movie Chooser! </h1>
+
+<%= form_tag "/", method: "GET" do %>
+<!-- form_tag denotes that page will stay where it is -->
+
+<%= text_field_tag :q, params[:q] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<br>
+<% @movies.each do |movie| %>
+	<%= link_to "#{movie.title}", movie_path(movie.id) %>
+<% end %>
