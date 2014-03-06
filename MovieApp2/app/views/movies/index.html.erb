@@ -10,4 +10,5 @@
 <br>
 <% @movies.each do |movie| %>
 	<%= link_to "#{movie.title}", movie_path(movie.id) %>
+	<p><%= link_to "Delete", movie_path(movie.id), :method => :delete %></p>
 <% end %>
