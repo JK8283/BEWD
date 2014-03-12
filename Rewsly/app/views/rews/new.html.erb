@@ -1,0 +1,13 @@
+<h1>Enter a news story</h1>
+
+<%= form_for(@rew) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :story %>
+	<%= f.text_field :story %>
+	<%= f.label :category %>
+	<%= f.text_field :category %>
+	<%= f.label :upvotes %>
+	<%= f.text_field :upvotes %>
+	<%= f.submit %>
+<% end %>

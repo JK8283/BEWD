@@ -1,0 +1,19 @@
+<h1> Welcome to Rewsly </h1>
+
+<%= form_tag "/", method: "GET" do %>
+
+<%= text_field_tag :q, params[:q] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<br>
+<% @rew.each do |rewstory| %>
+	<% if rewstory.upvotes >= 0 %>
+		<%= link_to "#{rewstory.title}", rew_path(rewstory.id) %> <br>
+		<%= "Category: #{rewstory.category}" %> <br>
+		<%= "Upvotes: #{rewstory.upvotes}" %> <br>
+		<%= "----------" %>
+		<p>
+	<% else %>
+	<% end %>
+<% end %>
