@@ -1,0 +1,27 @@
+<% if @blog.errors.any? %>
+	<h2> The following errors prevented your post from saving: </h2>
+<ul>
+	<% @blog.errors.full_messages.each do |msg| %>
+		<li> <%= msg %> </li>
+	<% end %>
+</ul>
+<% end %>
+
+<%= form_for(@blog) do |f| %>
+	<fieldset>
+		<legend>Blog</legend>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :author %>
+		<%= f.text_field :author %>
+	</div>
+	<div>
+		<%= f.label :body %>
+		<%= f.text_field :body %>
+	</div>
+	</fieldset>
+	<%= f.submit %>
+<% end %>

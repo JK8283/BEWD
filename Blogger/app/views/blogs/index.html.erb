@@ -1,0 +1,10 @@
+<h1> Welcome to Blogger. </h1>
+
+<h3> <%= link_to "+Add a new blog post.", new_blog_path %> </h3>
+
+<% @blog.each do |blog| %>
+	<%= link_to "#{blog.title}", blog_path(blog.id) %><br>
+	<%= "By: #{blog.author}" %><br>
+	<%= link_to "Delete", blog_path(blog.id), :method => :delete %><br>
+	<%= link_to "Edit", edit_blog_path(blog.id) %>
+<% end %>
