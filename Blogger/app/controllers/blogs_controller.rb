@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
 	def index
 		@blog = Blog.all
 	end
@@ -15,6 +17,7 @@ class BlogsController < ApplicationController
 	def create
 		safe_story_params = params.require(:blog).permit(:title, :author, :body)
 		@blog = Blog.new(blog_params)
+		@blog.user = current_user
 		if @blog.save
 			redirect_to root_path
 		else

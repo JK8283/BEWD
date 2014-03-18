@@ -2,9 +2,19 @@
 
 <h3> <%= link_to "+Add a new blog post.", new_blog_path %> </h3>
 
-<% @blog.each do |blog| %>
-	<%= link_to "#{blog.title}", blog_path(blog.id) %><br>
-	<%= "By: #{blog.author}" %><br>
-	<%= link_to "Delete", blog_path(blog.id), :method => :delete %><br>
-	<%= link_to "Edit", edit_blog_path(blog.id) %>
+<% if user_signed_in? == true %>
+	<% @blog.each do |blog| %>
+		<% if blog.user_id == current_user.id %>
+			<%= link_to "#{blog.title}", blog_path(blog.id) %><br>
+			<%= "By: #{blog.author}" %><br>
+			<%= link_to "Delete", blog_path(blog.id), :method => :delete %><br>
+			<%= link_to "Edit", edit_blog_path(blog.id) %><br><br>
+		<% else %>
+			<%= link_to "#{blog.title}", blog_path(blog.id) %><br>
+			<%= "By: #{blog.author}" %><br>
+			<%= "You cannot Delete or Edit posts that are not yours." %><br><br>
+		<% end %>
+	<% end %>
+<% else %>
+	<%= "Please sign in to view your posts." %>
 <% end %>

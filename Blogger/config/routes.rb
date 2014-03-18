@@ -1,9 +1,8 @@
 Blogger::Application.routes.draw do
 
+  devise_for :users
   root 'blogs#index'
 
   resources :blogs
-  
-  get '/blogs/new' => 'blogs#new'
-  post '/blogs' => 'blogs#create'
+
 end
