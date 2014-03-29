@@ -1,0 +1,40 @@
+<% if @trip.errors.any? %>
+	<h2> The following errors prevented your trip from saving: </h2>
+<ul>
+	<% @trip.errors.full_messages.each do |msg| %>
+		<li> <%= msg %> </li>
+	<% end %>
+</ul>
+<% end %>
+
+<h1> Edit a trip </h1>
+<%= form_for(@trip) do |f| %>
+	<fieldset>
+		<legend>Trip</legend>
+	<div>
+		<%= f.label :travelername %>
+		<%= f.text_field :travelername %>
+	</div>
+	<div>
+		<%= f.label :tripname %>
+		<%= f.text_field :tripname %>
+	</div>
+	<div>
+		<%= f.label :destination %>
+		<%= f.text_field :destination %>
+	</div>
+	<div>
+		<%= f.label :depature %>
+		<%= f.text_field :departure %>
+	</div>
+	<div>
+		<%= f.label :return %>
+		<%= f.text_field :return %>
+	</div>
+	<div>
+		<%= f.label :budget %>
+		<%= f.text_field :budget %>
+	</div>
+	</fieldset>
+	<%= f.submit %>
+<% end %>

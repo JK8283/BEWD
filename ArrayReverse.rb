@@ -1,3 +1,11 @@
+# def reverse(array)
+# 	new_array = []
+# 	array.each do |x|
+# 		new_array.unshift(x)
+# 	end
+# 	new_array
+# end
+
 def reverse(array)
 	count = array.count
 	counter = 0
